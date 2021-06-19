@@ -5,7 +5,8 @@
 ### 指向常量的指针（pointer to const）底层const
 ```
 const int ci = 0;
-const int *p = &ci;
+const int *p1 = &ci;
+int const *p2 = &ci;   //与p1等价
 ```
 &emsp;存放常量的地址只能用指向常量的指针。指向常量的指针可以指向一个*非常量对象*，但不能通过其更改其指向的非常量对象。（没有规定被指向的常量对象不能通过其他途径更改。）
 ### 常量指针（const pointer）顶层const
@@ -14,6 +15,12 @@ int i;
 int* const cp = &i;
 ```
 可以通过常量指针更改对象。
+### 指向常量的引用
+```
+int i;
+const int& r = i;
+int const& r = i;
+```
 
 #### constexpr
 将变量声明为constexpr以便由编译器检查是不是一个常量表达式。 
